@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VueJs V2 | Learn</title>
+ <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+
+ <h1> V-BIND</h1>
+ <div id="main">
+    <input type="text" v-model="info">
+    <p v-bind:title="info" > Texto de Relleno ... {{info}}</p>
+ </div>
+
+
+  <script src="js/vuejs.2.3.4.js"></script>
+  <script>
+    new Vue({
+      el: '#main',
+      data:{
+        info:''
+      },
+    })
+</script>
+</body>
+</html>
