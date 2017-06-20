@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="css/bootstrap.min.css">
-  <title>VueJs V2 | Learn</title>
+  <title>VueJs V2 | Learn Filtros</title>
 
 </head>
 <body>
@@ -12,9 +12,15 @@
  <div class="container" id="main">
    <div class="row">
       <div class="col-sm-4">
-        <h1> Lista VUEjs AXIOS - AJAX</h1>
-        <ul class="list-group">
-            <li class="list-group-item" v-for="item in lists"> {{item.name}}</li>
+        <h1> Lista VUEjs - Filtros</h1>
+        <button v-on:click="getUsers" class="btn btn-primary" v-if="!lists.length"> Listar</button>
+        <ul v-else class="list-group">
+            <li class="list-group-item">
+              <input type="text" v-model="name" placeholder="Buscar" class="form-control">
+            </li>
+            <li class="list-group-item" v-for="item in searchUser">
+               {{item.name}}
+            </li>
         </ul>
       </div>
       <div class="col-sm-8">
@@ -32,17 +38,20 @@
   var urlUsers = 'api/user.json'
   new Vue({
     el: '#main',
-    created: function () {
-        this.getUsers();
-    },
     data:{
       lists:[],
+      name: ''
     },
     methods: {
       getUsers: function() {
         axios.get(urlUsers).then(res => {
           this.lists = res.data;
         });
+      },
+    },
+    computed:{
+      searchUser: function(){
+        return this.lists.filter((item) => item.name.includes(this.name));
       }
     }
   })

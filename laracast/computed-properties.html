@@ -1,0 +1,50 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VueJs V2 | Laracast Cap 5</title>
+
+</head>
+<style>
+  .is-loading { background: red; }
+</style>
+<body>
+
+  <div id="root">
+    <h2>All task</h2>
+    <ul>
+      <li v-for="task in tasks" v-text="task.description"></li>
+    </ul>
+    <br />
+    <br />
+    <h2>Incompleted task</h2>
+    <ul>
+      <li v-for="task in incompletedTasks" v-text="task.description"></li>
+    </ul>
+  </div>
+
+<script src="../js/vue.js"></script>
+<script>
+  new  Vue({
+    el:'#root',
+    data:{
+      tasks: [
+        { description: 'Go to the Store', completed: true},
+        { description: 'Go to the Bathroom', completed: false},
+        { description: 'Go to the EPA', completed: true},
+        { description: 'Go to the Home', completed: false},
+        { description: 'Go to the Car', completed: true},
+        { description: 'Go to the Mall', completed: false}
+      ]
+    },
+
+    computed:{
+      incompletedTasks(){
+        return this.tasks.filter(tasks => ! tasks.completed)
+      }
+    }
+  })
+</script>
+</body>
+</html>

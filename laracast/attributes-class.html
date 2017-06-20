@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VueJs V2 | Laracast Cap 5</title>
+
+</head>
+<style>
+  .is-loading { background: red; }
+</style>
+<body>
+
+  <div id="root">
+    <button :class="{ 'is-loading': isLoading }" @click="toggleClass" v-text="message"> </button>
+  </div>
+
+<script src="../js/vue.js"></script>
+<script>
+  new  Vue({
+    el:'#root',
+    data:{
+      isLoading:false,
+      message: ' Toggle Me'
+    },
+    methods: {
+      toggleClass () {
+          this.isLoading = true
+          this.message = 'Ok'
+      }
+    }
+  })
+</script>
+</body>
+</html>
