@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
-  <title>VueJs V2 | Laracast Cap 9 Exercise Component Using Bulma</title>
+  <title>VueJs V2 | Laracast Cap 10 Exercise Component Modal Using Bulma</title>
   <style>
       #root{padding: 20px;}
   </style>
@@ -12,9 +12,9 @@
 <body>
 
   <div id="root" class="container">
-    <modal v-show="showModal"></modal>
+    <modal v-if="showModal" @close="showModal = false"></modal>
 
-    <button @click="showModal= true" @close="showModal = false"> Show Modal</button>
+    <button @click="showModal = true" > Show Modal</button>
 
   </div>
 
