@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
+  <title>VueJs V2 | Laracast Cap 11 Exercise Tabs Using Bulma</title>
+  <style>
+      #root{padding: 20px;}
+  </style>
+</head>
+<body>
+
+  <div id="root" class="container">
+    <tabs>
+      <tab name="About Us" :selected="true">
+        <h1>Hi About us</h1>
+      </tab>
+      <tab name="About Our Mision">
+        <h1>Hi About Our Mision</h1>
+      </tab>
+      <tab name="About Our Vision">
+        <h1>Hi About Our Vision</h1>
+      </tab>
+    </tabs>
+  </div>
+
+<script src="../js/vue.js"></script>
+<script src="../js/laracast-exercise-tabs.js"></script>
+</body>
+</html>
