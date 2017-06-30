@@ -1,0 +1,60 @@
+window.Event = new class{
+
+  constructor() {
+
+    this.vue = new Vue()
+
+  }
+
+  fire(event, data = null) {
+
+    this.vue.$emit(event,data)
+
+  }
+
+  listen(event, callback) {
+
+    this.vue.$on(event,callback)
+
+  }
+
+}
+
+Vue.component('coupon',{
+  template:`<input placeholder="Enter your coupon number" @blur="onCouponApplied">`,
+
+  methods: {
+
+    onCouponApplied(){
+
+        // this.$emit('applied') Lo comente por el segndo capitulo con esta clase agregada
+        Event.fire('applied')
+        // alert('applied')
+    }
+
+  }
+
+})
+
+new Vue({
+  el:'#root',
+
+  data:{
+    couponApplied:false
+  },
+
+  // methods: {
+  //
+  //   onCouponApplied(){
+  //
+  //     // alert('It was applied')
+  //     this.couponApplied = true
+  //
+  //   },
+  // }
+
+  created(){
+    Event.listen('applied', ()=> alert('Handling it '))
+  }
+
+})

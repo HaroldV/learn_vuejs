@@ -1,0 +1,22 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.css">
+  <title>VueJs V2 | Laracast Cap 12 Component Comunication Custom Event Using Bulma</title>
+  <style>
+      #root{padding: 20px;}
+  </style>
+</head>
+<body>
+
+  <div id="root" class="container">
+    <coupon @applied="onCouponApplied"> </coupon>
+    <h1 v-if="couponApplied">Your used coupon</h1>
+  </div>
+
+<script src="../js/vue.js"></script>
+<script src="../js/laracast-component-comunication.js"></script>
+</body>
+</html>
